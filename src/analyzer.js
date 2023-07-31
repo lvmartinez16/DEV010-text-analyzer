@@ -12,7 +12,7 @@ const Analyzer = {
   },
   getCharacterCountExcludingSpaces: (text) => {//TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
 
-    const regexCaracteres = /[^\s\.,\/#!$%\^&\*;:{}=\-_`~()\[\]0-9]/g; // Expresión regular para buscar caracteres que no sean espacios ni signos de puntuación
+    const regexCaracteres = /[^\s\.,\/#!$%\^&\*;:{}=\-_`~()\[\]]/g; // Expresión regular para buscar caracteres que no sean espacios ni signos de puntuación
     const caracteresEncontrados = text.match(regexCaracteres);
 
     if (caracteresEncontrados) {
@@ -36,32 +36,43 @@ const Analyzer = {
     return longitudMedia;
   },
   getNumberCount: (text) => {  //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+/* 
+    const regex = /\d+/g;   // Expresión regular para buscar números en el texto
+    const numerosEnTexto = text.match(regex);  // Obtener todos los números que coinciden con la expresión regular
+    let cantidadNumeros = 0;  // Inicializar la variable para contar la cantidad de números
 
-    const numerosEncontrados = text.match(/\d+/g);// Utilizamos una expresión regular para buscar números en el texto
-    // Si no se encontraron números, retornamos 0
-    if (!numerosEncontrados) {
-      return 0;
+    if (numerosEnTexto !== null) { // Comprobar si se encontraron números en el texto
+
+      cantidadNumeros = numerosEnTexto.length;  // Incrementar la cantidad de números por cada ocurrencia encontrada
+    }
+    return cantidadNumeros; */
+    let cantidadNumeros = 0;  // Inicializar la variable para contar la cantidad de números
+    for (let i = 0; i < text.length; i++) { // Recorrer el texto carácter por carácter
+      const caracterActual = text.charAt(i);  // Obtener el carácter actual
+      if (!isNaN(caracterActual) && caracterActual !== " ") { // Verificar si el carácter es un dígito numérico
+        cantidadNumeros++;
+        cantidadNumeros++;
+        while (i + 1 < text.length && !isNaN(text.charAt(i + 1))) { // Avanzar en el texto para evitar contar el mismo número más de una vez
+          i++;
+        }
+      }
     }
 
-    return numerosEncontrados.length;   // Retornamos la cantidad de números encontrados
-
+    return cantidadNumeros;
   },
-  getNumberSum: (text) => {
-    //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
-
-    let regexNumeros = /\d+/g; // Expresión regular para buscar números en el texto
-    let numerosEncontrados = text.match(regexNumeros);
-    if (numerosEncontrados) {
-      let numerosParseados = numerosEncontrados.map(numero => parseInt(numero, 10));
-      let sumaTotal = numerosParseados.reduce((acumulador, numero) => acumulador + numero, 0);
+  getNumberSum: (text) => { //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
+    const NumText = /\d+/g; // Expresión regular para buscar números en el texto
+    const NumEncontrados = text.match(NumText);
+    if (NumEncontrados) {
+      const numerosParseados = NumEncontrados.map(numero => parseInt(numero, 10));
+      const sumaTotal = numerosParseados.reduce((acumulador, numero) => acumulador + numero, 0);
       return sumaTotal;
     } else {
 
       return 0; // Si no se encontraron números, retorna 0
     }
-  }
 
+  },
 
-};
-
+}
 export default Analyzer;
