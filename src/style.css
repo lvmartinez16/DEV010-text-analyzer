@@ -16,8 +16,7 @@ textarea[name="user-input"]{
     border: 2px solid #7A316F;
     border-radius: 8px;
     color:antiquewhite;
-   
-   
+      
     
 }
 #reset-button{
@@ -49,10 +48,13 @@ header{
 }
 
 img {
-    background:  url(https://img.freepik.com/free-vector/blue-neon-frame-dark-background_53876-113902.jpg?w=1060&t=st=1690319265~exp=1690319865~hmac=75c67fb81982f63f48d9128035cc4fd78faa8ea58c8cc14810de089ca7d15115);
-    text-align: center;
+   
     width: 50px;   
     height: 60px;
     padding: auto;
+    }
+    body{
+        background-color: #123666;
+        text-align: center;
     }
 

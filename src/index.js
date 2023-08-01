@@ -12,19 +12,7 @@ const contadorLongitud = document.querySelector('li[data-testid="word-length-ave
 const contadorNúmeros = document.querySelector('li[data-testid="number-count"]');
 const contadorSumNum = document.querySelector('li[data-testid="number-sum"]');
 
-/* const collection = document.getElementsByClassName("listado");
-for (let i = 0; i < collection.length; i++) {
-  collection[i].style.border = "solid 1px red";
-  collection[i].style.margin = "1px";
-}
 
-const buttonClass = document.getElementsByClassName("listado");
-for (let i = 0; i < buttonClass.length; i++) {
-  buttonClass[i].style.border = "solid 1px red";
-  buttonClass[i].style.margin = "1px";
-} 
-
- */
 //cada vez que suelte la tecla muestre lo escrito en textarea
 //contadoranalyzer se llama la constante declara en el archivo analyzer.js
 function functionKeyUp() {
@@ -46,7 +34,7 @@ btnreset.addEventListener("click", function () {
   textarea.value = "";
   contadorPalabras.textContent = "Palabras:0";
   contadorCaracteres.textContent = "Caracteres:0";
-  contadorSinEspacio.textContent = "Carcater sin espacio:0"
+  contadorSinEspacio.textContent = "Carcater sin espacio:0";
   contadorLongitud.textContent = "Promedio longitud:0";
   contadorNúmeros.textContent = "Números:0";
   contadorSumNum.textContent = "Suma números:0";
